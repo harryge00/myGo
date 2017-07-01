@@ -5,7 +5,7 @@ import (
 )
 
 type myMsg struct {
-	seqNum int
+	seqNum  int
 	message string
 }
 

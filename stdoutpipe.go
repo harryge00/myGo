@@ -2,12 +2,12 @@ package main
 
 import (
 	// "encoding/json"
+	"bufio"
+	"bytes"
 	"fmt"
 	"io"
 	"log"
 	"os/exec"
-	"bufio"
-	"bytes"
 )
 
 func main() {

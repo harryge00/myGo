@@ -13,7 +13,7 @@ type ReaderCloser interface {
 
 func handleConn(conn ReaderCloser) { // conn net.Conn) {
 	fmt.Println("Reading once from connection")
-	
+
 	var buf [1024]byte
 	n, _ := conn.Read(buf[:])
 	fmt.Println("Client sent: ", string(buf[0:n]))
@@ -33,8 +33,8 @@ func main() {
 			fmt.Println("Couldn't accept: ", err)
 			os.Exit(-1)
 		}
-		go handleConn(conn) 
+		go handleConn(conn)
 	}
 	fmt.Println("All done")
-	
+
 }

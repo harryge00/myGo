@@ -10,14 +10,14 @@ import (
 // we had to know what type Accept returned
 func handleConn(conn net.Conn) {
 	fmt.Println("Reading once from connection")
-	
+
 	var buf [1024]byte
 	n, err := conn.Read(buf[:])
 	if err != nil {
 		fmt.Println("Error on read: ", err)
 		os.Exit(-1)
 	}
-	
+
 	fmt.Println("Client sent:  ", string(buf[0:n]))
 	//conn.Close()
 }

@@ -1,5 +1,7 @@
-package main 
+package main
+
 import "fmt"
+
 func main() {
 	var a *int
 	const three = 3

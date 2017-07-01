@@ -1,10 +1,10 @@
 package main
 
 import (
+	"fmt"
 	"io"
 	"io/ioutil"
 	"net/http"
-	"fmt"
 )
 
 func hello(w http.ResponseWriter, r *http.Request) {

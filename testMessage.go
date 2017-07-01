@@ -1,7 +1,9 @@
 package main
+
 import "fmt"
 import "lsp"
 import "encoding/json"
+
 func main() {
 	ack := lsp.NewAck(21, 0)
 	ackBytes, _ := json.Marshal(ack)
@@ -10,7 +12,7 @@ func main() {
 	json.Unmarshal(ackBytes, msg2)
 	fmt.Printf("Marshalled ack: %s\n", msg2)
 
-	payload := [] byte("abcdefg")
+	payload := []byte("abcdefg")
 	data := lsp.NewData(255, 2, payload)
 	dataBytes, _ := json.Marshal(data)
 	fmt.Printf("data: %s\n", dataBytes)
@@ -19,7 +21,7 @@ func main() {
 	if msg.Type == lsp.MsgData {
 		fmt.Println("Marshalled data: %s\n", &msg)
 	}
-	fmt.Println(msg.Type, lsp.MsgConnect, lsp.MsgAck )
+	fmt.Println(msg.Type, lsp.MsgConnect, lsp.MsgAck)
 	if msg.Type == 1 {
 		fmt.Println("Marshalled data: %s\n", &msg)
 	}

@@ -77,4 +77,3 @@ func main() {
 	// We don't run it here because this is not a main function and
 	// the testing suite has already parsed the flags.
 }
-

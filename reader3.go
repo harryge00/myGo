@@ -1,22 +1,22 @@
 package main
 
 import (
-    "fmt"
-    "os"
-    "os/exec"
+	"fmt"
+	"os"
+	"os/exec"
 )
 
 func print() {
-    fmt.Println("output")
+	fmt.Println("output")
 }
 
 func main() {
-    _, w, _ := os.Pipe()
-    os.Stdout = w
+	_, w, _ := os.Pipe()
+	os.Stdout = w
 
-    print()
-    cmd := exec.Command("ls")
-    cmd.Stdout = os.Stdout
-    cmd.Run()
-    
+	print()
+	cmd := exec.Command("ls")
+	cmd.Stdout = os.Stdout
+	cmd.Run()
+
 }

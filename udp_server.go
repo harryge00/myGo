@@ -1,30 +1,33 @@
 package main
+
 import (
+	"log"
 	"net"
-"log"
-"strconv"
+	"strconv"
 )
-const(
+
+const (
 	BUFFSIZE = 1024
 )
+
 func main() {
-	serverAddr,err := net.ResolveUDPAddr("udp",":8081")
-	if err!= nil {
+	serverAddr, err := net.ResolveUDPAddr("udp", ":8081")
+	if err != nil {
 		log.Println("[server] resolving error ", err)
-		return  
+		return
 	}
 	conn, err := net.ListenUDP("udp", serverAddr)
 	if err != nil {
 		log.Println("[server] listening error ", err)
-		return  
+		return
 	}
 	readFromClient(conn)
 }
 func readFromClient(conn *net.UDPConn) {
-	var buffer [BUFFSIZE] byte
+	var buffer [BUFFSIZE]byte
 	i := 0
 	for {
-		_, addr, err :=conn.ReadFromUDP(buffer[0:])
+		_, addr, err := conn.ReadFromUDP(buffer[0:])
 		if err != nil {
 			log.Println("[server] ReadFromUDP error ", err)
 			continue

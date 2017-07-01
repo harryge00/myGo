@@ -1,11 +1,11 @@
 package main
 
 import (
+	"fmt"
 	"io/ioutil"
 	"log"
-	"fmt"
 	"time"
-//	"os"
+	//	"os"
 	"path/filepath"
 )
 
@@ -23,6 +23,6 @@ func main() {
 	}
 	time.Sleep(10 * time.Second)
 	ln := ""
-    fmt.Sscanln("%v", ln)
-    fmt.Println(ln)
+	fmt.Sscanln("%v", ln)
+	fmt.Println(ln)
 }
