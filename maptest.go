@@ -4,8 +4,23 @@ import (
 	"fmt"
 	// go fmt puts these in alphbetical order.
 )
-
+func changemap(m map[int]int) {
+	m[1234] = 567
+}
+type TT struct {
+	m map[int]int
+}
 func main() {
+	t := &TT{
+		m: map[int]int{},
+	}
+	
+	t.m[124]=456
+	changemap(t.m)
+	for i := range t.m {
+		fmt.Println(i, t.m[i], len(t.m))
+	}
+
 	m := map[string]float64{}
 	var str string
 	fmt.Println(str == "")
@@ -32,6 +47,7 @@ func main() {
 	gids = make(map[int]bool)
 	gids[10] = true
 	gids[21] = true
+	// changemap(gids)
 	for i := range gids {
 		fmt.Println(i)
 	}

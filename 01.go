@@ -9,4 +9,6 @@ func main() {
 	var s S
 	s = S("abcdef")
 	fmt.Println(s)
+	arr := []int{}
+	fmt.Println(arr[3])
 }

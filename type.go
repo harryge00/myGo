@@ -17,10 +17,18 @@ func newTestClients(num int, slow bool) []*testClient {
 	return clients
 }
 
+type uid string
 func main() {
+	ss := fmt.Sprintf("%s-%d", "asss", 19)
+	fmt.Println(ss)
 	manyClients := newTestClients(9, false)
 	for i := range manyClients {
 		cli := manyClients[i]
 		fmt.Printf("id:%d + %b\n", cli.id, cli.slow)
 	}
+	var id uid
+	id = "aaaa"
+	var s string
+	s = string(id)
+	fmt.Println(s)
 }

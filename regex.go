@@ -6,10 +6,17 @@ import (
 )
 
 func main() {
-	re := regexp.MustCompile("a.")
-	fmt.Println(re.FindAllString("paranormal", 1))
+	re1 := regexp.MustCompile(`([a-zA-Z0-9_.-/]{0,253}/)?[a-zA-Z0-9]([a-zA-Z0-9_.-]{0,61}[a-zA-Z0-9])?`)
+	fmt.Println(re1.MatchString("k8s_ns/lab.el/kubernetes-admin.caicloud.io/partition"))
+	
+
+	re := regexp.MustCompile("a.")	
 	fmt.Println(re.FindAllString("paranormal", 2))
 	fmt.Println(re.FindAllString("graal", 3))
 	fmt.Println(re.FindAllString("none", -1))
 
+	fmt.Println(regexp.MatchString("([a-zA-Z0-9-]+)-[0-9]", "haoyuan-40"))
+	fmt.Println(regexp.MatchString("([a-zA-Z0-9-]+)-[0-9]", "kube-system"))
+	fmt.Println(regexp.MatchString("([a-zA-Z0-9-]+)-[0-9]", "default"))
+	fmt.Println(regexp.MatchString("([a-zA-Z0-9-]+)-[0-9]", "senyang-34"))
 }

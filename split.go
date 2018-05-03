@@ -19,6 +19,8 @@ func main() {
 	// for _, w := range result {
 	// 	fmt.Print(w)
 	// }
+	ddd:=strings.Split("aaa", "-")
+	fmt.Println(ddd, len(ddd))
 
 	logFiles := strings.Split("/var/log/*.log /home/*.txt abcdefg", " ")
 	var logDirs []string

@@ -10,6 +10,8 @@ import (
 func hello(w http.ResponseWriter, r *http.Request) {
 	fmt.Println(r.URL)
 	fmt.Println(r.Header)
+	fmt.Println(r.RemoteAddr)
+	// RemoteAddr
 	body, _ := ioutil.ReadAll(r.Body)
 	fmt.Println(string(body))
 	io.WriteString(w, "Hello world!")

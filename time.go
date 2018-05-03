@@ -108,5 +108,4 @@ func main() {
 	// If the fraction in the layout is 9s, trailing zeros are dropped.
 	do("9s for fraction", "15:04:05.99999999", "11:06:39.1234")
 	fmt.Println(time.Since(start))
-
 }

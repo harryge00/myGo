@@ -10,5 +10,9 @@ func main() {
 	b := t
 	b.name="bbb"
 	fmt.Println(t, b)
-	
+	arr := []T{t, b}
+	for _, t := range arr {
+		t.name = "xxx"
+	}
+	fmt.Println(arr)
 }

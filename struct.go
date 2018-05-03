@@ -17,7 +17,26 @@ func change(arg PaxosArgs) {
 	arg.Val = "youyouyou"
 	fmt.Println(arg.Seq, ":", arg.Val)
 }
+
+func changeRefer(arg *PaxosArgs) {
+	arg.Seq = 789
+}
+
 func main() {
+	p := &PaxosArgs{
+		Seq: 123,
+		Num: 999,
+		Val: "ss",
+	}
+	p2 := *p
+	p2.Seq = 456
+	fmt.Println(p)
+	fmt.Println(p2)
+	changeRefer(&p2)
+
+
+	fmt.Println(p2)
+
 	var v interface{}
 	fmt.Println(v == nil)
 	// v="you are cool"

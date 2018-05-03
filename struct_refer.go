@@ -4,18 +4,28 @@ import "fmt"
 
 type S struct {
 	nums []int
+	name string
 }
 
 func Do(arr *[]int) {
 	*arr = make([]int, 4)
 	(*arr)[0] = 123
 }
+type R struct {
+	name string
+	ss S
+}
 func main() {
-	var config Config
-	config.Num = 100
-	config.Groups = make(map[int64][]string)
-	fmt.Println(len(config.Shards), "dd", len(config.dd))
-	Do(&config.dd)
-	fmt.Println(config)
 	
+	r := R{}
+	s := S{
+		name: "aaaa",
+		nums: []int{3, 5},
+	}
+	r.ss = s
+	fmt.Println(r)
+	s.name = "abc"
+	s.nums[0] = 999
+	fmt.Println(r, s)
+
 }
