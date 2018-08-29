@@ -4,6 +4,7 @@ package main
 import "fmt"
 import "path/filepath"
 import "time"
+import "os"
 
 func main() {
 	fmt.Println(time.Now())
@@ -38,4 +39,5 @@ func main() {
 	fmt.Println(aa)
 	aa = append(aa, bb...)
 	fmt.Println(aa)
+	fmt.Println(os.Args)
 }

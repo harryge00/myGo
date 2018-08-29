@@ -19,6 +19,7 @@ package main
 import (
 	"flag"
 	"fmt"
+	"os"
 
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/client-go/kubernetes"
@@ -39,10 +40,7 @@ func containIP(pod *v1.Pod) bool {
 
 func main() {
 	fmt.Println("occupied_ip ", len(occupied_ip))
-	occupied_map := make(map[string]bool)
-	for _, ip := range occupied_ip {
-		occupied_map[ip] = false
-	}
+
 	kubeconfig := flag.String("kubeconfig", "./config", "absolute path to the kubeconfig file")
 	flag.Parse()
 	// uses the current context in kubeconfig
@@ -55,19 +53,19 @@ func main() {
 	if err != nil {
 		panic(err.Error())
 	}
-	pods, err := clientset.CoreV1().Pods("").List(metav1.ListOptions{})
+	pods, err := clientset.CoreV1().Pods(os.Args[1]).List(metav1.ListOptions{})
 	if err != nil {
 		panic(err.Error())
 	}
 	for _, pod := range pods.Items {
-		if pod.Annotations["ips"] != "" && strings.Contains(pod.Name, "246-10") {
+		if pod.Annotations["ips"] != "" && strings.Contains(pod.Name, os.Args[2]) {
 			ips := strings.Split(pod.Annotations["ips"], "-")
-			occupied_map[ips[1]] = true
+			fmt.Println(pod.OwnerReferences[0].Name, ips[1])
 		}
 	}
-	for key, val := range occupied_map {
-		if val == false {
-			fmt.Println(key)
-		}
-	}
+	//for key, val := range occupied_map {
+	//	if val == false {
+	//		fmt.Println(pod.Name, key)
+	//	}
+	//}
 }
