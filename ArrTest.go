@@ -44,6 +44,5 @@ func main() {
 	var ddd []int
 	ddd = []int{2, 5, 5}
 	fmt.Println(ddd)
-	ddd = append(ddd[:1], 33, ddd[1:])
 
 }

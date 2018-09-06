@@ -6,8 +6,8 @@ import (
 )
 
 func main() {
-	layout := "2006-01-02T15:04:05.000Z"
-	str := "2014-11-12T11:45:26.371Z"
+	layout := "2006-01-02T15:04:05Z"
+	str := "2018-01-01T00:00:01Z"
 	t, err := time.Parse(layout, str)
 
 	if err != nil {
