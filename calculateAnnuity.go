@@ -43,15 +43,15 @@ func generatePlan(loanAmount, nominalRate float64, duration int, t time.Time) []
 		interest = loanAmount * monthRate
 		principal = annuity - interest
 		payment := PaymentItem{
-			BorrowerPaymentAmount: fmt.Sprintf("%f", annuity),
-			InitialOutstandingPrincipal: fmt.Sprintf("%f", loanAmount),
-			Interest: fmt.Sprintf("%f", interest),
-			Principal: fmt.Sprintf("%f", principal),
+			BorrowerPaymentAmount: strconv.FormatFloat(annuity, 'f', 2, 64),
+			InitialOutstandingPrincipal: strconv.FormatFloat(loanAmount, 'f', 2, 64),
+			Interest: strconv.FormatFloat(interest, 'f', 2, 64),
+			Principal: strconv.FormatFloat(principal, 'f', 2, 64),
 			Date: t.String(),
 		}
 		loanAmount -= principal
-		payment.RemainingOutstandingPrincipal = fmt.Sprintf("%f", loanAmount)
-		t.AddDate(0, 1, 0)
+		payment.RemainingOutstandingPrincipal = strconv.FormatFloat(loanAmount, 'f', 2, 64)
+		t = t.AddDate(0, 1, 0)
 		res = append(res, payment)
 	}
 	return res
