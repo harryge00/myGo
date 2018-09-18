@@ -72,8 +72,10 @@ func main() {
         fmt.Errorf("failed to convert mask %v", ipNet.Mask)
     }
     fmt.Println(mask)
-    str := "[xxx]"
+    str := "xxxx-33"
     fmt.Println(str[1:len(str) - 1])
 
     fmt.Println(getDataMapfromString("W2RhdGExOnYyLGRhdGEyOnYyXQo="))
+    lastIndex := strings.LastIndex(str, "-")
+    fmt.Println(str[lastIndex:])
 }
