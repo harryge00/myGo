@@ -20,4 +20,7 @@ func main() {
 	//	buf := []byte(classname)
 	//	buf[0] = byte('C')
 	//	fmt.Println(string(buf))
+
+	b := float64(0xFFFFFFFFFFFFFFFF) * 0.2
+	fmt.Println(b)
 }
