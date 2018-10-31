@@ -49,12 +49,6 @@ type IpReleaseResp struct {
 }
 
 func main() {
-	
-	fmt.Println(len(ids), len(ips))
-	if len(ids) != len(ips) {
-		panic("Len Not EQ!")
-	}
-
 	kubeconfig := flag.String("kubeconfig", "./config", "absolute path to the kubeconfig file")
 	flag.Parse()
 	// uses the current context in kubeconfig
@@ -71,39 +65,18 @@ func main() {
 	if err != nil {
 		panic(err.Error())
 	}
-	for i := range ips {
-		ip := ips[i]
-		id := ids[i]
-		findFlag := false
-		for _, pod := range pods.Items {
-			if strings.Contains(pod.Annotations["ips"], ip) {
-				findFlag = true
-				break
-			}
-		}
 
-		if !findFlag {
-			namespace := fmt.Sprintf("%s-%d", users[ids[i] - 1], ids[i])
-			fmt.Println(ip, namespace)
-			req := IpRelease{
-				IP:     ip,
-				UserId: id,
+	ipMap := make(map[string]bool)
+	for _, pod := range pods.Items {
+		ipArr := strings.Split(pod.Annotations["ips"], "-")
+		if len(ipArr) == 2 {
+			fmt.Println(pod.Namespace, ipArr[1])
+			if ipMap[ipArr[1]] == true {
+				fmt.Println("Find duplicate IP ", ip)
 			}
-			bytes, err := json.Marshal(req)
-			if err != nil {
-				glog.Errorf("json errorf %v", err)
-			}
-			_, err = sendReleaseIpReq(bytes, "http://10.30.100.10:8090/api/net/ip/release")
-			if err != nil {
-				fmt.Println(err)
-			}
+			ipMap[ipArr[1]] = true
 		}
 	}
-	//for key, val := range occupied_map {
-	//	if val == false {
-	//		fmt.Println(pod.Name, key)
-	//	}
-	//}
 }
 
 func sendReleaseIpReq(reqBytes []byte, url string) (code int, err error) {
