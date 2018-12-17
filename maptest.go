@@ -14,7 +14,6 @@ func main() {
 	t := &TT{
 		m: map[int]int{},
 	}
-	
 	t.m[124]=456
 	changemap(t.m)
 	for i := range t.m {

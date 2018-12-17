@@ -66,5 +66,6 @@ func moveZero(arr []int) []int {
 func main() {
 	fmt.Println(moveZero([]int{2, 5, 0, 10, 0, 15, 20}))
 	fmt.Println(moveZero([]int{0, 2, 5, 0, 10, 15, 20, 0}))
-
+	fmt.Println(putZeroToEnd([]int{2, 5, 0, 10, 0, 15, 20}))
+	fmt.Println(putZeroToEnd([]int{0, 2, 5, 10, 15, 20, 0}))
 }
