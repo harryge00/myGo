@@ -1,7 +1,4 @@
-FROM centos
-ENV LANG en_US.UTF-8  
-ENV LANGUAGE en_US:en  
-ENV LC_ALL en_US.UTF-8  
+FROM ubuntu
 
-ADD simple-server /
+ADD simple-server /simple-server
 ENTRYPOINT ["/simple-server"]
