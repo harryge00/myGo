@@ -21,4 +21,10 @@ func main() {
 	fmt.Println(arr2, arr3)
 	arr3 = append(arr3, 1234)
 	fmt.Println(arr2, arr3)
+	var testmake []int
+	fmt.Println(testmake == nil)
+
+	testmake = make([]int, 0)
+	fmt.Println(testmake == nil)
+	fmt.Println(len(testmake), cap(testmake))
 }

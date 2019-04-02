@@ -36,6 +36,10 @@ func main() {
 	arr4 := arr3[4:6]
 	fmt.Println(arr4, len(arr4), cap(arr4))
 
+	arr5
+	arr4[0] = 9999
+	fmt.Println(arr3, arr4)
+
 	m := make(map[string][]string)
 	m["abc"] = append(m["abc"], "def")
 	m["abc"] = append(m["abc"], "defddd")
