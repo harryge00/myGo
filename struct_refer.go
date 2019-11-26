@@ -1,6 +1,7 @@
 package main
 
 import "fmt"
+import "reflect"
 
 type S struct {
 	nums []int
@@ -28,4 +29,7 @@ func main() {
 	s.nums[0] = 999
 	fmt.Println(r, s)
 
+	rv1 := reflect.ValueOf(r)
+
+	fmt.Println(rv1.MapKeys())
 }

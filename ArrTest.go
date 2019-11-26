@@ -2,6 +2,8 @@ package main
 
 import (
 	"fmt"
+	"unsafe"
+	"strconv"
 )
 
 func MultiplyArray(arr1 []float64, num float64) {
@@ -10,6 +12,30 @@ func MultiplyArray(arr1 []float64, num float64) {
 	}
 }
 
+func findMissingRanges(nums []int, lower int, upper int) []string {
+    res := make([]string, 0)
+    if len(nums) == 0 {
+        return append(res, convert2Str(lower, upper))
+    }
+    if lower < nums[0] {
+    	res = append(res, convert2Str(lower, nums[0] - 1))
+    }
+    for lastExist := nums[0], i := 1; i < len(nums); i++ {
+    	if 
+    }
+    lastExist := nums[0]
+
+
+    return res
+}
+
+func convert2Str(a, b int) string {
+	if a == b {
+		return strconv.Itoa(a)
+	} else {
+		return strconv.Itoa(a) + "->" + strconv.Itoa(b)
+	}
+}
 
 func main() {
 	var testarr []int
@@ -36,7 +62,6 @@ func main() {
 	arr4 := arr3[4:6]
 	fmt.Println(arr4, len(arr4), cap(arr4))
 
-	arr5
 	arr4[0] = 9999
 	fmt.Println(arr3, arr4)
 
@@ -47,6 +72,30 @@ func main() {
 	fmt.Println(m)
 	var ddd []int
 	ddd = []int{2, 5, 5}
+	eee := []int{3,4,5}
 	fmt.Println(ddd)
+	fmt.Printf("%p %p \n", &ddd, &eee)
+	ddd2 := ddd[1:]
+	fmt.Printf("pp %p ", &ddd2)
+
+	fmt.Println(unsafe.Pointer(&ddd2), unsafe.Pointer(&ddd2[0]), unsafe.Pointer(&ddd2[1]))
+
+	fmt.Println(ddd, ddd2)
+	ddd2[0] = 999
+	fmt.Println(ddd, ddd2)
+	fmt.Println(len(ddd), cap(ddd))
+	fmt.Println(len(ddd2), cap(ddd2))
+	ddd2 = append(ddd2, 777)
+	fmt.Println(ddd2, len(ddd2), cap(ddd2))
+	ddd2 = append(ddd2, 888)
+	fmt.Println(ddd2, len(ddd2), cap(ddd2))
+	ddd2 = append(ddd2, 999)
+	fmt.Println(ddd2, len(ddd2), cap(ddd2))
+	ddd2[1] = 444
+	fmt.Println(ddd2, len(ddd2), cap(ddd2))
+	fmt.Printf("%p \n", &ddd2)
+
+	fmt.Println(ddd, len(ddd), cap(ddd))
+
 
 }

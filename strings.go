@@ -6,11 +6,7 @@ import (
 	"strconv"
     "net"
 	"strings"
-<<<<<<< a46d2e9520b84e1a711f237ce0582aaac4bd5dce
     "encoding/base64"
-=======
-
->>>>>>> add regexp
 )
 
 func wordPattern(pattern string, str string) bool {
@@ -36,7 +32,6 @@ func wordPattern(pattern string, str string) bool {
     return true
 }
 
-<<<<<<< a46d2e9520b84e1a711f237ce0582aaac4bd5dce
 func getDataMapfromString(str string) map[string]bool {
     var m map[string]bool
     decoded, err := base64.StdEncoding.DecodeString(str)
@@ -57,8 +52,6 @@ func getDataMapfromString(str string) map[string]bool {
     return m
 }
 
-=======
->>>>>>> add regexp
 func main() {
     s := "4: sbsbssss222    inet 192.168.1.3/16 scope global sbsbssss222       valid_lft forever preferred_lft forever"
     lines := strings.Split(s, "\n")
@@ -79,13 +72,10 @@ func main() {
         fmt.Errorf("failed to convert mask %v", ipNet.Mask)
     }
     fmt.Println(mask)
-<<<<<<< a46d2e9520b84e1a711f237ce0582aaac4bd5dce
     str := "xxxx-33"
     fmt.Println(str[1:len(str) - 1])
 
     fmt.Println(getDataMapfromString("W2RhdGExOnYyLGRhdGEyOnYyXQo="))
     lastIndex := strings.LastIndex(str, "-")
     fmt.Println(str[lastIndex:])
-=======
->>>>>>> add regexp
 }
