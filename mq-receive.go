@@ -2,7 +2,8 @@ package main
 
 import (
 	"log"
-
+	"fmt"
+	"os"
 	"github.com/streadway/amqp"
 )
 
@@ -13,16 +14,25 @@ func failOnError(err error, msg string) {
 }
 
 func main() {
-	conn, err := amqp.Dial("amqp://guest:guest@localhost:5672/")
+	password := os.Getenv("MQPASS")
+	username := os.Getenv("MQUSER")
+	host := os.Getenv("MQHOST")
+	port := os.Getenv("MQPORT")
+	url := fmt.Sprintf("amqp://%s:%s@%s:%s/", username, password, host, port)
+	log.Printf("URL: %s", url)
+	conn, err := amqp.Dial(url)
 	failOnError(err, "Failed to connect to RabbitMQ")
 	defer conn.Close()
 
 	ch, err := conn.Channel()
 	failOnError(err, "Failed to open a channel")
 	defer ch.Close()
-
+	queueName := os.Getenv("QUEUENAME")
+	if queueName == "" {
+		queueName = "hello-world"
+	}
 	q, err := ch.QueueDeclare(
-		"hello3", // name
+		queueName, // name
 		false,   // durable
 		false,   // delete when unused
 		false,   // exclusive

@@ -30,8 +30,13 @@ func main() {
 	failOnError(err, "Failed to open a channel")
 	defer ch.Close()
 
+	queueName := os.Getenv("QUEUENAME")
+	if queueName == "" {
+		queueName = "hello-world"
+	}
+
 	q, err := ch.QueueDeclare(
-		"test-lost-mq", // name
+		queueName, // name
 		false,   // durable
 		false,   // delete when unused
 		false,   // exclusive

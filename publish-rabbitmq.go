@@ -2,7 +2,12 @@ package main
 
 /*
 
-
+export MQPASS=password
+export MQUSER=admin
+export MQEXCHANGE=test
+export MQKEY=test
+export MQHOST=amqp.rabbitmq-test-plugin2.l4lb.thisdcos.directory
+export MQPORT=5672
 */
 import (
 	"log"
@@ -56,6 +61,7 @@ func main() {
 		false,  // mandatory
 		false,  // immediate
 		amqp.Publishing{
+			DeliveryMode: amqp.Persistent,
 			ContentType: "text/plain",
 			Body:        []byte(body),
 		})
