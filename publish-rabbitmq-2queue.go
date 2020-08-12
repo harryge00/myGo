@@ -4,6 +4,7 @@ import (
 	"log"
 	"os"
 	"fmt"
+	"time"
 
 	"github.com/streadway/amqp"
 )
@@ -15,7 +16,6 @@ func failOnError(err error, msg string) {
 }
 
 func main() {
-
 	password := os.Getenv("MQPASS")
 	username := os.Getenv("MQUSER")
 	host := os.Getenv("MQHOST")
@@ -46,15 +46,21 @@ func main() {
 	failOnError(err, "Failed to declare a queue")
 
 	body := "Hello World!"
-	err = ch.Publish(
-		"",     // exchange
-		q.Name, // routing key
-		false,  // mandatory
-		false,  // immediate
-		amqp.Publishing{
-			ContentType: "text/plain",
-			Body:        []byte(body),
-		})
-	log.Printf(" [x] Sent %s", body)
+	for true {
+		log.Printf(" [x] Sent 100 %s", body)
+		time.Sleep(500 * time.Millisecond)
+		for i := 0; i < 100; i++ {
+			err = ch.Publish(
+			"",     // exchange
+			q.Name, // routing key
+			false,  // mandatory
+			false,  // immediate
+			amqp.Publishing{
+				ContentType: "text/plain",
+				Body:        []byte(body),
+			})
+		}
+	}
+	
 	failOnError(err, "Failed to publish a message")
 }

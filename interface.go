@@ -30,8 +30,8 @@ func (s Sequence) String() string {
 }
 func check(obj interface{}) {
 	if d, ok := obj.(Sequence); ok {
-		fmt.Println("is Sequence")
-		fmt.Println(d.Newest())
+		fmt.Println(d, "is Sequence")
+		// fmt.Println(d.Newest())
 	}
 }
 func main() {

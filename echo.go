@@ -36,6 +36,7 @@ func handleConnection2(conn net.Conn) {
     conn.Write([]byte("ok"))
     conn.Close()
 }
+
 func handleConnection(conn net.Conn) { 
     bufr := bufio.NewReader(conn)
     buf := make([]byte, 1024)

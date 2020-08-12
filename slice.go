@@ -23,6 +23,15 @@ func main() {
 	fmt.Println(emptySlice, len(emptySlice), cap(emptySlice))
 	fmt.Println(oneSlice, len(oneSlice), cap(oneSlice))
 	fmt.Println(twoSlice, len(twoSlice), cap(twoSlice))
+	tmpSlice := oneSlice
+	oneSlice = twoSlice
+	twoSlice = tmpSlice
+	fmt.Println(oneSlice)
+	fmt.Println(twoSlice)
+	var an, bn int
+	an = 123
+	bn = 456
+	fmt.Println(an+bn)
 	// fmt.Println(slice[4:1])
 	// fmt.Println(slice[4:-1])
 }
