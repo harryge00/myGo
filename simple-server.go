@@ -2,10 +2,11 @@ package main
 
 import (
 	"fmt"
-	"os"
 	"io"
 	"io/ioutil"
 	"net/http"
+	"os"
+	"runtime"
 )
 
 func hello(w http.ResponseWriter, r *http.Request) {
@@ -21,6 +22,7 @@ func hello(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
+	fmt.Println("Used cpus: ", runtime.NumCPU())
 	http.HandleFunc("/", hello)
 	port := os.Getenv("PORT")
 	if port == "" {

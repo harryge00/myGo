@@ -16,13 +16,15 @@ func main() {
 	fmt.Println(m["abc"])
 	m["abc"] += 1
 	fmt.Println(m["abc"])
-    slice := []int{1, 2, 3, 4, 5}
-    emptySlice := slice[:0]
-    oneSlice := slice[:1]
-    twoSlice := slice[2:]
+	slice := []int{1, 2, 3, 4, 5}
+	emptySlice := slice[:0]
+	oneSlice := slice[:1]
+	twoSlice := slice[2:]
 	fmt.Println(emptySlice, len(emptySlice), cap(emptySlice))
 	fmt.Println(oneSlice, len(oneSlice), cap(oneSlice))
 	fmt.Println(twoSlice, len(twoSlice), cap(twoSlice))
+
+	fmt.Println(slice[3:], slice[0:3])
 	// fmt.Println(slice[4:1])
 	// fmt.Println(slice[4:-1])
 }
