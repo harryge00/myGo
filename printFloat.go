@@ -9,5 +9,8 @@ func FloatToString(input_num float64) string {
 }
 
 func main() {
+    toleration := 10
+    f1 := (1 - float64(toleration)/100)
+    fmt.Println("f1 should be 0.9: ", f1)
     fmt.Println(FloatToString(21312421.213123))
 }

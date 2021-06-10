@@ -23,4 +23,9 @@ func main() {
 
 	b := float64(0xFFFFFFFFFFFFFFFF) * 0.2
 	fmt.Println(b)
+
+	numerator := 11
+	demonitor := 7
+	f := float64(numerator)/float64(demonitor)
+	fmt.Println(f)
 }

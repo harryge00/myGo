@@ -45,4 +45,6 @@ func main() {
 	ddd = []int{2, 5, 5}
 	fmt.Println(ddd)
 
+	testCap := make([]int, 0)
+	fmt.Println("default cap of a len0 slice:", cap(testCap))
 }

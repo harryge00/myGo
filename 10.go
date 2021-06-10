@@ -17,7 +17,7 @@ func main() {
 	go chanSender(ch)
 
 	for msg := range ch {
-		fmt.Println("Message", msg.seqNum, ":", msg.message)
+		fmt.Println("Message", msg.seqNum, ":", msg.message, len(ch))
 	}
 }
 
