@@ -8,6 +8,8 @@ import (
 )
 
 func main() {
+	sss := make([]int, 123)
+	fmt.Println(len(sss))
 	var a [4]int
 	a[0] = 5
 	var b []int
@@ -24,7 +26,16 @@ func main() {
 	fmt.Println(oneSlice, len(oneSlice), cap(oneSlice))
 	fmt.Println(twoSlice, len(twoSlice), cap(twoSlice))
 
+	concateSlice := append(slice[0:2], 9999, slice[2:]...)
+	fmt.Println("concateSlice", concateSlice)
 	fmt.Println(slice[3:], slice[0:3])
-	// fmt.Println(slice[4:1])
-	// fmt.Println(slice[4:-1])
+
+	threeSlice := []int{9, 9, 9}
+	fmt.Println(append(slice, threeSlice...))
+
+	initSlice := make([]int, 9)
+	fmt.Println(initSlice)
+	initSlice = append(initSlice, 123)
+	initSlice = append(initSlice, 456)
+	fmt.Println(initSlice)
 }

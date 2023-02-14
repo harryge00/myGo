@@ -12,4 +12,5 @@ func main() {
 	addNum(s, 1)
 	fmt.Println("should be empty slice", s)
 	addNum([]int{}, 33)
+	fmt.Println("should be empty slice", s)
 }

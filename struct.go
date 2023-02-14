@@ -12,6 +12,16 @@ type PaxosArgs struct {
 	Val interface{}
 }
 
+type Child struct {
+	A int
+	B int
+}
+
+type Parent struct {
+	name string
+	Child
+}
+
 func change(arg PaxosArgs) {
 	arg.Seq = 666
 	arg.Val = "youyouyou"
@@ -23,6 +33,14 @@ func changeRefer(arg *PaxosArgs) {
 }
 
 func main() {
+	prt := Parent{
+		name: "abc",
+	}
+	fmt.Println(prt)
+	prt.A = 123
+	prt.B = 123
+	fmt.Println(prt)
+
 	p := &PaxosArgs{
 		Seq: 123,
 		Num: 999,
@@ -33,7 +51,6 @@ func main() {
 	fmt.Println(p)
 	fmt.Println(p2)
 	changeRefer(&p2)
-
 
 	fmt.Println(p2)
 

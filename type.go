@@ -18,7 +18,10 @@ func newTestClients(num int, slow bool) []*testClient {
 }
 
 type uid string
+
 func main() {
+	aint := 50
+	fmt.Printf("%v\n", (100.0-float64(aint))/100.0)
 	ss := fmt.Sprintf("%s-%d", "asss", 19)
 	fmt.Println(ss)
 	manyClients := newTestClients(9, false)

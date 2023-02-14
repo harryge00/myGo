@@ -24,10 +24,11 @@ func pump2() chan int {
 func suck(ch chan int) {
 	go func() {
 		for v := range ch {
-			fmt.Println(v)
+			fmt.Println("suck", v, len(ch))
 		}
 	}()
 }
+
 func main() {
 	// 	ch1 := make(chan int)
 	// 	go pump(ch1)

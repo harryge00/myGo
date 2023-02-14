@@ -3,9 +3,8 @@ package main
 import (
 	"fmt"
 	// "io/ioutil"
-	"strings"
 	"path/filepath"
-
+	"strings"
 )
 
 func main() {
@@ -19,8 +18,11 @@ func main() {
 	// for _, w := range result {
 	// 	fmt.Print(w)
 	// }
-	ddd:=strings.Split("aaa", "-")
+	ddd := strings.Split("aaa", "-")
 	fmt.Println(ddd, len(ddd))
+	ddd = strings.Split("", "-")
+
+	fmt.Println(ddd, len(ddd), ddd[0])
 
 	logFiles := strings.Split("/var/log/*.log /home/*.txt abcdefg", " ")
 	var logDirs []string

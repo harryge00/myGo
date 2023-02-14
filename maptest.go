@@ -4,21 +4,32 @@ import (
 	"fmt"
 	// go fmt puts these in alphbetical order.
 )
+
 func changemap(m map[int]int) {
 	m[1234] = 567
 }
+
 type TT struct {
 	m map[int]int
 }
+
 func main() {
 	t := &TT{
 		m: map[int]int{},
 	}
-	t.m[124]=456
+	t.m[124] = 456
 	changemap(t.m)
 	for i := range t.m {
 		fmt.Println(i, t.m[i], len(t.m))
 	}
+
+	mToAssign := map[int]int{
+		999: 12345,
+	}
+	t.m = mToAssign
+	fmt.Println(t)
+	mToAssign[444] = 777
+	fmt.Println(t)
 
 	m := map[string]float64{}
 	var str string
@@ -27,6 +38,10 @@ func main() {
 	m["pi"] = 3.1415
 	val, ok := m["ddd"]
 	fmt.Printf("%v, value %g\n", ok, val)
+
+	m["2"] += 3
+	fmt.Println("mm", m)
+
 	m2 := map[int64]string{}
 	val2, ok2 := m2[567]
 	fmt.Printf("%v, value %s\n", ok2, val2)

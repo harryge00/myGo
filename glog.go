@@ -6,6 +6,7 @@ import (
 	"os"
 	"flag"
 	"fmt"
+	"log"
 )
 
 func usage() {
@@ -28,5 +29,7 @@ func main() {
 		message := fmt.Sprintf("TEST LINE: %d", i)
 		glog.Error(message)
 	}
+	
 	glog.Flush()
+	log.Println("test123")
 }

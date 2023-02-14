@@ -21,5 +21,6 @@ func main() {
 	fmt.Println(strings.Split(str2, ";"))
 
 	fmt.Println(abc + arr1[2])
-
+	message := "ReplicaSet \"mqp-nlu-deployment-5c66cb6b68\" has successfully progressed."
+	fmt.Println(message[12 : 12+strings.Index(message[12:], "\"")])
 }

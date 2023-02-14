@@ -1,7 +1,9 @@
 package main
 
-import "time"
-import "log"
+import (
+	"log"
+	"time"
+)
 
 func Ticker() {
 	c := time.Tick(1 * time.Second)
@@ -24,7 +26,7 @@ func cal(ch chan int) {
 func main() {
 	ch := make(chan int)
 	go cal(ch)
-	ticker := time.NewTicker(1500 * time.Millisecond)
+	ticker := time.NewTicker(10500 * time.Millisecond)
 	// go timer(tchan)
 	for {
 		select {

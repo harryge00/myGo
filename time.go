@@ -16,7 +16,7 @@ func main() {
 	fmt.Println(t)
 
 	var tt time.Time
-	fmt.Println(tt, tt.After(time.Unix(0, 0)))	
+	fmt.Println(tt, tt.After(time.Unix(0, 0)))
 
 	// time.Time's Stringer method is useful without any format.
 	fmt.Println("default format:", t)
@@ -108,4 +108,7 @@ func main() {
 	// If the fraction in the layout is 9s, trailing zeros are dropped.
 	do("9s for fraction", "15:04:05.99999999", "11:06:39.1234")
 	fmt.Println(time.Since(start))
+	t = time.Now()
+	format := "2006-01-02T15:04:05.999999999+08:00"
+	fmt.Println(t.Format(format))
 }
