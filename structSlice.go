@@ -29,6 +29,14 @@ func main() {
 	sl := Slice{
 		items: []One{s1, s2, s3},
 	}
+	fmt.Printf("s1~s3 %p %p %p\n", &s1, &s2, &s3)
+	for i := range sl.items {
+		assignedStruct := &sl.items[i]
+		fmt.Printf("%v %p %v\n", i, assignedStruct, assignedStruct)
+	}
+	for i := range sl.items {
+		fmt.Printf("%v %p %v\n", i, &sl.items[i], sl.items[i])
+	}
 	fmt.Println(sl)
 	x := sl.items[0]
 	x.name = "xxxx"

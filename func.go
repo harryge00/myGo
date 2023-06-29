@@ -7,7 +7,21 @@ type tt struct {
 }
 
 func main() {
-	a("ABD")
+	fmt.Println(checkShadow())
+}
+
+func checkShadow() (a string, b string) {
+
+	b = "check"
+	a = "it"
+	fmt.Println(a, b)
+	a, c := hello()
+	fmt.Println(a, c)
+	return
+}
+
+func hello() (string, string) {
+	return "hello", "world"
 }
 
 var a = func(str string) {
